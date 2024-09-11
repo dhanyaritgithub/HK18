@@ -2,71 +2,176 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Class</title>
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        select {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #0056b3;
+        /* Add your CSS styles here */
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: none; /* Hide by default */
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Select a Class</h1>
-        <select id="classSelect">
-            <option value="" disabled selected>Select a class</option>
-            <option value="class1">Class 1</option>
-            <option value="class2">Class 2</option>
-            <option value="class3">Class 3</option>
-        </select>
-        <button onclick="goToStudentPage()">Next</button>
+        <h2>Register</h2>
+
+        <!-- Role Selection -->
+        <div class="form-group">
+            <select id="roleSelect" onchange="showForm()" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="teacher">Teacher</option>
+                <option value="parent">Parent</option>
+            </select>
+            <label for="roleSelect" class="select-label">Role</label>
+        </div>
+
+        <!-- Teacher Registration Form -->
+        <form id="teacherForm" style="display: none;" onsubmit="return validateTeacherForm()">
+            <div class="form-group">
+                <input type="text" required>
+                <label for="">Full Name</label>
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="email" required>
+                <label for="">Email</label>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="teacherPassword" required>
+                <label for="teacherPassword">Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="teacherConfirmPassword" required>
+                <label for="teacherConfirmPassword">Confirm Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="text" required>
+                <label for="">Subject Taught</label>
+                <i class="fa-solid fa-book"></i>
+            </div>
+
+            <div class="error-message" id="teacherError">Passwords do not match!</div>
+
+            <input id="btn" type="submit" value="Register as Teacher">
+        </form>
+
+        <!-- Parent Registration Form -->
+        <form id="parentForm" style="display: none;" onsubmit="return validateParentForm()">
+            <div class="form-group">
+                <input type="text" required>
+                <label for="">Full Name</label>
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="email" required>
+                <label for="">Email</label>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="parentPassword" required>
+                <label for="parentPassword">Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="parentConfirmPassword" required>
+                <label for="parentConfirmPassword">Confirm Password</label>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="text" required>
+                <label for="">Student Name</label>
+                <i class="fa-solid fa-child"></i>
+            </div>
+
+            <div class="error-message" id="parentError">Passwords do not match!</div>
+
+            <input id="btn" type="submit" value="Register as Parent">
+        </form>
+
+        <p>Already have an account? <a href="login.html">Login</a></p>
     </div>
 
     <script>
-        function goToStudentPage() {
-            const selectedClass = document.getElementById("classSelect").value;
-            if (selectedClass) {
-                window.location.href = `students.html?class=${selectedClass}`;
-            } else {
-                alert("Please select a class!");
+        function showForm() {
+            var role = document.getElementById('roleSelect').value;
+            var teacherForm = document.getElementById('teacherForm');
+            var parentForm = document.getElementById('parentForm');
+
+            teacherForm.style.display = 'none';
+            parentForm.style.display = 'none';
+
+            if (role === 'teacher') {
+                teacherForm.style.display = 'block';
+            } else if (role === 'parent') {
+                parentForm.style.display = 'block';
             }
         }
+
+        function validateTeacherForm() {
+            var password = document.getElementById('teacherPassword').value;
+            var confirmPassword = document.getElementById('teacherConfirmPassword').value;
+            var errorElement = document.getElementById('teacherError');
+
+            if (password !== confirmPassword) {
+                errorElement.style.display = 'block'; // Show error message
+                return false; // Prevent form submission
+            }
+            errorElement.style.display = 'none'; // Hide error message
+            return true; // Allow form submission
+        }
+
+        function validateParentForm() {
+            var password = document.getElementById('parentPassword').value;
+            var confirmPassword = document.getElementById('parentConfirmPassword').value;
+            var errorElement = document.getElementById('parentError');
+
+            if (password !== confirmPassword) {
+                errorElement.style.display = 'block'; // Show error message
+                return false; // Prevent form submission
+            }
+            errorElement.style.display = 'none'; // Hide error message
+            return true; // Allow form submission
+        }
+
+        // Label Animation for Select
+        const selectElement = document.getElementById('roleSelect');
+        const labelElement = document.querySelector('.select-label');
+
+        selectElement.addEventListener('change', () => {
+            labelElement.style.top = '-5px';
+            labelElement.style.fontSize = '1em';
+        });
+
+        selectElement.addEventListener('focus', () => {
+            labelElement.style.top = '-5px';
+            labelElement.style.fontSize = '1em';
+        });
+
+        selectElement.addEventListener('blur', () => {
+            if (selectElement.value === "") {
+                labelElement.style.top = '50%';
+                labelElement.style.fontSize = '1.2em';
+            }
+        });
     </script>
+
 </body>
 </html>
