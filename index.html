@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select a Class</h1>
+        <select id="classSelect">
+            <option value="" disabled selected>Select a class</option>
+            <option value="class1">Class 1</option>
+            <option value="class2">Class 2</option>
+            <option value="class3">Class 3</option>
+        </select>
+        <button onclick="goToStudentPage()">Next</button>
+    </div>
+
+    <script>
+        function goToStudentPage() {
+            const selectedClass = document.getElementById("classSelect").value;
+            if (selectedClass) {
+                window.location.href = `students.html?class=${selectedClass}`;
+            } else {
+                alert("Please select a class!");
+            }
+        }
+    </script>
+</body>
+</html>
