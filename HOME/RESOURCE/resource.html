@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Center</title>
+    <link rel="stylesheet" href="resource.css">
+</head>
+<body>
+
+    <header>
+        <h1>Resource Center</h1>
+    </header>
+
+    <!-- Main Menu -->
+    <section class="menu">
+        <h2>Select a Resource</h2>
+        <div class="menu-items">
+            <div class="menu-item" onclick="showSection('youtube')">YouTube Links</div>
+            <div class="menu-item" onclick="showBooks()">Books</div>
+            <div class="menu-item" onclick="showPdfs()">PDFs</div>
+        </div>
+    </section>
+
+    <!-- YouTube Links Section -->
+    <section id="youtube" class="resource-section">
+        <h2>YouTube Links</h2>
+        <div class="content">
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/u8JZ9gU5o4g?si=RdjP0iHhOdD-W-G0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="350" height="200" src="https://www.youtube.com/embed/Gd92jSu_cZk?si=ZjoMC9ihXOPtbm5s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="350" height="200" src="https://www.youtube.com/embed/XB4MIexjvY0?si=lTlaKFC9NiXauFEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="350" height="200" src="https://www.youtube.com/embed/Dxu7GKtdbnA?si=XszHorWNQQMMFS6a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="350" height="200" src="https://www.youtube.com/embed/HcOc7P5BMi4?si=AVxtWJttVT080DYl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="350" height="200" src="https://www.youtube.com/embed/ESnrn1kAD4E?si=5XYwaO4BywV_gpSp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <button onclick="goBack()">Go Back</button>
+    </section>
+
+    <!-- Books Section (Opens New Page) -->
+    <section id="books" class="resource-section">
+        <h2>Books Resources</h2>
+        <ul>
+            <li><a href="https://www.gutenberg.org/ebooks/74393.html.images" target="_blank">Book 1: History of Merchant shipping</a></li>
+            <li><a href="https://www.gutenberg.org/ebooks/74391.html.images" target="_blank">Book 2: Veterinary medicine</a></li>
+            <li><a href="https://www.gutenberg.org/ebooks/74388.html.noimages" target="_blank">Book 3: Gutenberg e book</a></li>
+        </ul>
+        <button onclick="goBack()">Go Back</button>
+    </section>
+
+    <!-- PDF Section (Opens New Page) -->
+    <section id="pdf" class="resource-section">
+        <h2>PDF Resources</h2>
+        <ul>
+            <li><a href="C:\Users\USER\Desktop\dbms\DMS MQP 1.pdf" target="_blank">Solved DMS MCQ</a></li>
+            <li><a href="/C:\Users\USER\Desktop\exam\10s.c\adaaa\Design-and-Analysis-of-Algorithms_QP_Solution_18CS42.pdf" target="_blank">PDF 2: ADA</a></li>
+            <li><a href="/C:\Users\USER\Desktop\dbms\@vtucode.in-BCS403-module-5-2022-scheme.pdf" target="_blank">PDF 3: DBMS</a></li>
+        </ul>
+        <button onclick="goBack()">Go Back</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Resource Center. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to show the selected section and hide the others
+        function showSection(section) {
+            document.querySelector('.menu').style.display = 'none'; // Hide main menu
+            document.getElementById('youtube').style.display = 'none'; // Hide YouTube section
+            document.getElementById('books').style.display = 'none'; // Hide Books section
+            document.getElementById('pdf').style.display = 'none'; // Hide PDF section
+            document.getElementById(section).style.display = 'block'; // Show the selected section
+        }
+
+        // Function to show the YouTube section
+        function showBooks() {
+            showSection('books');
+        }
+
+        // Function to show the PDF section
+        function showPdfs() {
+            showSection('pdf');
+        }
+
+        // Function to go back to the main menu
+        function goBack() {
+            document.querySelector('.menu').style.display = 'block'; // Show main menu
+            document.getElementById('youtube').style.display = 'none'; // Hide YouTube section
+            document.getElementById('books').style.display = 'none'; // Hide Books section
+            document.getElementById('pdf').style.display = 'none'; // Hide PDF section
+        }
+    </script>
+
+</body>
+</html>

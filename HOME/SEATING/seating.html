@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seating Arrangement</title>
+    <link rel="stylesheet" href="seating.css"> 
+</head>
+<body>
+
+    <header>
+        <h1>Creative Seating Arrangement</h1>
+        <p>Select a class or search by student roll number to find details.</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search student by roll number..." onkeyup="searchSeat()">
+    </div>
+
+    <!-- Class Selection -->
+    <div class="class-selector">
+        <button onclick="showClass('classA')">Class A</button>
+        <button onclick="showClass('classB')">Class B</button>
+        <button onclick="showClass('classC')">Class C</button>
+    </div>
+
+    <!-- Class A Seating Arrangement -->
+    <section id="classA" class="seating-arrangement hidden">
+        <h2>Class A Seating Arrangement</h2>
+        <div class="container">
+           
+
+
+            <div class="seat" data-number="A01" data-name="Nithya BP">A01<br>Nithya BP</div>
+            <div class="seat" data-number="A02" data-name="Nick Jones">A02<br>Nick Jones</div>
+            <div class="seat" data-number="A03" data-name="Alice Jhonson">A03<br>Alice Jhonson</div>
+            <div class="seat" data-number="A04" data-name="Anusha jhonson">A04<br>Anusha jhonso</div>
+            <div class="seat" data-number="A05" data-name="Akash Nair">A05<br>Akash nai</div>
+            <div class="seat" data-number="A06" data-name="Deepika Yadav">A06<br>Deepika yadav</div>
+            <div class="seat" data-number="A07" data-name="Ranveer singh">A07<br>Ranveer singh</div>
+            <div class="seat" data-number="A08" data-name="Thanush Shetty">A08<br>Thanush Shetty</div>            
+            <div class="seat" data-number="A09"data-name="Shreyas Nayak">A09<br>shreyas nayak</div>
+            <div class="seat" data-number="A10" data-name="Gayathri Suresh">A10<br>Gayathri suresh</div>
+        
+        </div>
+    </section>
+
+    <!-- Class B Seating Arrangement -->
+    <section id="classB" class="seating-arrangement hidden">
+        <h2>Class B Seating Arrangement</h2>
+        <div class="container">
+            <div class="seat" data-number="B01" data-name="william Brown">B01<br>william Brown</div>
+            <div class="seat" data-number="B02" data-name="Avinash kumar">B02<br>Avinash kumar</div>
+            <div class="seat" data-number="B03" data-name="Anurag Verma">B03<br>Anurag Verma</div>
+            <div class="seat" data-number="B04" data-name="Akshay Suvarna">B04<br>Akshay Suvarna</div>
+            <div class="seat" data-number="B05" data-name="Pratham Shetty">B05<br>Pratham Shetty</div>
+            <div class="seat" data-number="B06" data-name="Vrushali Poojary">B06<br>Vrushali Poojary</div>
+            <div class="seat" data-number="B07" data-name="Ananya Udupa">B07<br>Ananya Udupa</div>
+            <div class="seat" data-number="B08" data-name="Preethi CG">B08<br>Preethi CG</div>
+            <div class="seat" data-number="B09" data-name="Dhanyshree">B09<br>Dhanyshree</div>
+            <div class="seat" data-number="B10" data-name="Likhitha Nekkilar">B10<br>Likhitha Nekkilar</div>
+              
+        </div>
+    </section>
+
+    <!-- Class C Seating Arrangement -->
+    <section id="classC" class="seating-arrangement hidden">
+        <h2>Class C Seating Arrangement</h2>
+        <div class="container">
+            <div class="seat" data-number="C01" data-name="Daniel Green">C01<br>Daniel Green</div>
+            <div class="seat" data-number="C02" data-name="Chiranth singh">C02<br>Chiranth singh</b></div>
+            <div class="seat" data-number="C03" data-name="Arjun Harish">C03<br>Arjun Harish</div>
+            <div class="seat" data-number="C04" data-name="Ishani Rai">C04<br>Ishani Rai</div>
+            <div class="seat" data-number="C05" data-name="Anagha KTP">C05<br>Anagha KT</div>
+            <div class="seat" data-number="C06" data-name="Devika Nambiar">C06<br>Devika Nambiar</div>
+            <div class="seat" data-number="C07" data-name="Nandana Nambiar">C07<br>Nandana Nambiar</div>
+            <div class="seat" data-number="C08" data-name="arun raj">C08<br>arun raj</div> 
+            <div class="seat" data-number="C09" data-name="Nafiya">C09<br>Nafiya</div> 
+            <div class="seat" data-number="C10" data-name="Azwina Mol">C10<br>Azwina Mol</div> 
+        </div>
+    </section>
+
+    <!-- Student Details Section (appears after search) -->
+    <section id="student-details" class="hidden">
+        <h2>Student Details</h2>
+        <p><strong>Roll Number:</strong> <span id="seatNumber"></span></p>
+        <p><strong>Student Name:</strong> <span id="studentName"></span></p>
+        <button onclick="goBack()">Go Back</button>
+    </section>
+
+    <script>
+        // Function to show the selected class
+        function showClass(classId) {
+            document.querySelectorAll('.seating-arrangement').forEach(section => section.classList.add('hidden'));
+            document.getElementById(classId).classList.remove('hidden');
+        }
+
+        // Search for a student by roll number (alphanumeric)
+        function searchSeat() {
+            const input = document.getElementById('searchInput').value.toUpperCase();
+            const seats = document.querySelectorAll('.seat');
+            let found = false;
+
+            seats.forEach(seat => {
+                const seatNumber = seat.dataset.number.toUpperCase();
+                if (seatNumber.includes(input)) {
+                    document.querySelectorAll('.seating-arrangement').forEach(section => section.classList.add('hidden'));
+                    document.getElementById('student-details').classList.remove('hidden');
+                    document.getElementById('seatNumber').textContent = seat.dataset.number;
+                    document.getElementById('studentName').textContent = seat.dataset.name;
+                    found = true;
+                }
+            });
+
+            if (!found && input.length > 0) {
+                alert("Student not found!");
+            }
+        }
+        function goBack() {
+            document.querySelectorAll('.seating-arrangement').forEach(section => section.classList.add('hidden'));
+            document.getElementById('student-details').classList.add('hidden');
+            document.getElementById('searchInput').value = '';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Google Meet Call</title>
+    <link rel="stylesheet" href="gmeet.css">
+</head>
+<body>
+    <header>
+        <h1>Google Meet Scheduler</h1>
+    </header>
+
+   
+    <section class="scheduler">
+        <h2>Schedule a Google Meet Call</h2>
+        <form id="scheduleForm">
+            <div class="form-group">
+                <label for="meetingTitle">Meeting Title:</label>
+                <input type="text" id="meetingTitle" name="meetingTitle" placeholder="Enter meeting title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="meetingDate">Meeting Date:</label>
+                <input type="date" id="meetingDate" name="meetingDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="meetingTime">Meeting Time:</label>
+                <input type="time" id="meetingTime" name="meetingTime" required>
+            </div>
+
+            <div class="form-group">
+                <label for="meetingLink">Google Meet Link:</label>
+                <input type="url" id="meetingLink" name="meetingLink" placeholder="Enter Google Meet link" required>
+           </div>
+
+            <div class="form-group">
+                <button type="submit">Schedule Meeting</button>
+            </div>
+           
+    
+
+        </form>
+    </section>
+
+    
+    <section class="meetings">
+        <h2>Upcoming Meetings</h2>
+        <ul id="meetingList">
+           
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Google Meet Scheduler. All rights reserved.</p>
+    </footer>
+
+    <script src="gmeet.js"></script>
+</body>
+</html>

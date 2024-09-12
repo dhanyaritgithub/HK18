@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #CBB89D;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #412F26;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        select {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #CBB89D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #6F4E37;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select a Student</h1>
+        <select id="studentSelect">
+            <option value="" disabled selected>Select a student</option>
+        </select>
+        <button onclick="goToProfilePage()">View Profile</button>
+    </div>
+
+    <script>
+        // Get class from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedClass = urlParams.get('class');
+
+        // Populate student dropdown based on selected class
+        const studentSelect = document.getElementById("studentSelect");
+        const students = {
+            class1: ['Nithya BP', 'Nick Jonas', 'Alice Johnson','Anusha Johnson','Akash Nair','Deepika Yadav','Ranveer Singh','Thanush Shetty','Shreyas Nayak','Gayathri Suresh'],
+            class2: ['William Brown','Avinash Kumar','Anurag Verma','Akshay Suvarna','Pratham Shetty','Vrushali Poojary','Ananya Udupa','Preethi CG','Dhanyashree','Likhitha Nekkilar'],
+            class3: ['Daniel Green','Chiranth Singh','Arjun Harish','Ishani Rai','Anagha KTP','Devika Nambiar','Nandana Nambiar','Arun Raj','Naifya','Azwina Mol']
+        };
+
+        if (selectedClass && students[selectedClass]) {
+            students[selectedClass].forEach(student => {
+                const option = document.createElement("option");
+                option.value = student.replace(/\s+/g, '');
+                option.textContent = student;
+                studentSelect.appendChild(option);
+            });
+        } else {
+            alert("Invalid class selected!");
+        }
+
+        function goToProfilePage() {
+            const selectedStudent = document.getElementById("studentSelect").value;
+            if (selectedStudent) {
+                window.location.href = `student.html?class=${selectedClass}&student=${selectedStudent}`;
+            } else {
+                alert("Please select a student!");
+            }
+        }
+    </script>
+</body>
+</html>
