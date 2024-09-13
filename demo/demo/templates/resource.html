@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #CBB89D;
+            color: #333;
+        }
+
+        header {
+            background-color: #412F26;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .menu {
+            text-align: center;
+            margin: 50px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .menu-item {
+            background-color: #412F26;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .menu-item:hover {
+            background-color: #6F4E37;
+        }
+
+        .resource-section {
+            display: none;
+            text-align: center;
+            margin: 30px;
+        }
+
+        iframe {
+            margin: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #412F26;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6F4E37;
+        }
+
+        footer {
+            background-color: #412F26;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+        }
+
+        ul li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Resource Center</h1>
+    </header>
+
+    <!-- Main Menu -->
+    <section class="menu">
+        <h2>Select a Resource</h2>
+        <div class="menu-items">
+            <div class="menu-item" onclick="showSection('youtube')">YouTube Links</div>
+            <div class="menu-item" onclick="showBooks()">Books</div>
+            <div class="menu-item" onclick="showPdfs()">PDFs</div>
+        </div>
+    </section>
+
+    <!-- YouTube Links Section -->
+    <section id="youtube" class="resource-section">
+        <h2>YouTube Links</h2>
+        <div class="content">
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/u8JZ9gU5o4g?si=RdjP0iHhOdD-W-G0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/Gd92jSu_cZk?si=ZjoMC9ihXOPtbm5s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/XB4MIexjvY0?si=lTlaKFC9NiXauFEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/HcOc7P5BMi4?si=G04B6C96gk4nqYuv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/OXGznpKZ_sA?si=kqRnPpbCfOzdNoYY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="350" height="200" src="https://www.youtube.com/embed/1yrh60og6qc?si=7Cc577Ivj1iMvEVQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <button onclick="goBack()">Go Back</button>
+    </section>
+
+    <!-- Books Section (Opens New Page) -->
+    <section id="books" class="resource-section">
+        <h2>Books Resources</h2>
+        <ul>
+            <li><a href="https://www.gutenberg.org/ebooks/74393.html.images" target="_blank">Book 1: History of Merchant shipping</a></li>
+            <li><a href="https://www.gutenberg.org/ebooks/74391.html.images" target="_blank">Book 2: Veterinary medicine</a></li>
+            <li><a href="https://www.gutenberg.org/ebooks/74388.html.noimages" target="_blank">Book 3: Gutenberg e book</a></li>
+        </ul>
+        <button onclick="goBack()">Go Back</button>
+    </section>
+
+    <!-- PDF Section (Opens New Page) -->
+    <section id="pdf" class="resource-section">
+        <h2>PDF Resources</h2>
+        <ul>
+            <li><a href="C:\Users\USER\Desktop\dbms\DMS MQP 1.pdf" target="_blank">PDF 1:Solved DMS MCQ</a></li>
+            <li><a href="C:\Users\USER\Desktop\exam\10s.c\adaaa\Design-and-Analysis-of-Algorithms_QP_Solution_18CS42.pdf" target="_blank">PDF 2: ADA</a></li>
+            <li><a href="C:\Users\USER\Desktop\dbms\@vtucode.in-BCS403-module-5-2022-scheme.pdf" target="_blank">PDF 3: DBMS</a></li>
+        </ul>
+        <button onclick="goBack()">Go Back</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Resource Center. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to show the selected section and hide the others
+        function showSection(section) {
+            document.querySelector('.menu').style.display = 'none'; // Hide main menu
+            document.getElementById('youtube').style.display = 'none'; // Hide YouTube section
+            document.getElementById('books').style.display = 'none'; // Hide Books section
+            document.getElementById('pdf').style.display = 'none'; // Hide PDF section
+            document.getElementById(section).style.display = 'block'; // Show the selected section
+        }
+
+        // Function to show the YouTube section
+        function showBooks() {
+            showSection('books');
+        }
+
+        // Function to show the PDF section
+        function showPdfs() {
+            showSection('pdf');
+        }
+
+        // Function to go back to the main menu
+        function goBack() {
+            document.querySelector('.menu').style.display = 'block'; // Show main menu
+            document.getElementById('youtube').style.display = 'none'; // Hide YouTube section
+            document.getElementById('books').style.display = 'none'; // Hide Books section
+            document.getElementById('pdf').style.display = 'none'; // Hide PDF section
+        }
+    </script>
+
+</body>
+</html>

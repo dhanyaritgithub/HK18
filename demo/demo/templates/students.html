@@ -82,7 +82,7 @@
         function goToProfilePage() {
             const selectedStudent = document.getElementById("studentSelect").value;
             if (selectedStudent) {
-                window.location.href = `student.html?class=${selectedClass}&student=${selectedStudent}`;
+                window.location.href = `/studentprofile?class=${selectedClass}&student=${selectedStudent}`;
             } else {
                 alert("Please select a student!");
             }

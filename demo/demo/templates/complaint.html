@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Support System - Complaint Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #CBB89D;
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            background: #412F26;
+            color: white;
+            border-bottom: 8px solid white;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.4em;
+        }
+
+        .complaint-section {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #CBB89D;
+        }
+
+        .complaint-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-size: 1.1em;
+            background-color: #fafafa;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: brown;
+            outline: none;
+            box-shadow: 0 0 6px rgba(0, 191, 165, 0.5);
+        }
+
+        .submit-btn {
+            padding: 15px;
+            background-color: #412F26;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            background-color: #CBB89D;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 191, 165, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #412F26;
+            color: white;
+            margin-top: 40px;
+            border-top: 8px solid white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .complaint-section {
+                padding: 20px;
+            }
+
+            .submit-btn {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Complaints</h1>
+        <p>Welcome to the Complaint Box for Teachers and Parents</p>
+    </header>
+
+    <section class="complaint-section">
+        <h2>Submit Your Complaint</h2>
+        <p>If you are a parent or teacher, use this form to submit your complaint regarding a student or teacher.</p>
+        
+        <form class="complaint-form" action="/submit-complaint" method="POST">
+            <div class="form-group">
+                <label for="complainantType">I am a:</label>
+                <select id="complainantType" name="complainantType" required>
+                    <option value="teacher">Teacher</option>
+                    <option value="parent">Parent</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subjectType">Complaint About:</label>
+                <select id="subjectType" name="subjectType" required>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="details">Complaint Details:</label>
+                <textarea id="details" name="details" placeholder="Describe the issue..." rows="5" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Submit Complaint</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Teacher Support System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

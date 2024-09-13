@@ -62,7 +62,8 @@
         function goToStudentPage() {
             const selectedClass = document.getElementById("classSelect").value;
             if (selectedClass) {
-                window.location.href = `students.html?class=${selectedClass}`;
+                window.location.href = `/students.html?class=${selectedClass}`;
+    
             } else {
                 alert("Please select a class!");
             }
